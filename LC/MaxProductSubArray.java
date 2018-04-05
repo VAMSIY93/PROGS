@@ -12,7 +12,7 @@ class MaxProductSubArray {
         int product[] = new int[nums.length];
         product[0] = nums[0]; 
         int total = nums[0];
-        int negative = 1, maxProduct = Integer.MIN_VALUE;
+        int negative = 1, maxProduct = nums[0];
         if(total<0 && nums[1]!=0)
         	negative = total;
 
@@ -27,15 +27,18 @@ class MaxProductSubArray {
         		}
         		else {
 	        		total *= nums[i];
-   					product[i] = product[i-1];
+   					product[i] = Math.max(product[i-1], nums[i]);
 	      		}
         	} else {
         		if(total>=0)
         			maxProduct = Math.max(maxProduct, total);
         		else {
-        			int tempMax = Math.max(product[i-1], (total/negative));
+        			int tempMax = Integer.MIN_VALUE;
+        			if(total!=negative)
+	        			tempMax = Math.max(product[i-1], (total/negative));
+	        		else
+	        			tempMax = product[i-1];
         			maxProduct = Math.max(maxProduct, tempMax);
-        			System.out.println(maxProduct+"  "+product[i-1]+"  "+total+"  "+negative);
         		}
         		product[i] = 0;
         		negative = 1;
