@@ -1,19 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class TreeNode
-{
-	int data;
-	TreeNode left;
-	TreeNode right;
-	public TreeNode(int d)
-	{
-		data = d;
-	}
-}
-
-class ZigZag
-{
+class ZigZag {
 	public static TreeNode constructTree()
 	{
 		TreeNode root = new TreeNode(10);
@@ -54,7 +42,7 @@ class ZigZag
 
 			if(node!=null)
 			{
-				System.out.println(node.data+"\t");
+				//System.out.println(node.data+"\t");
 				if(level%2==0)
 				{
 					if(node.right!=null)

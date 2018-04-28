@@ -11,7 +11,7 @@ class MedianOfArrays
 		int n = sc.nextInt();
 		int nums1[] = new int[m];
 		int nums2[] = new int[n];
-		System.out.println("Enter elements of 1st array:")
+		System.out.println("Enter elements of 1st array:");
 		for(int i=0;i<m;i++)
 			nums1[i] = sc.nextInt();
 		System.out.println("Enter elements of 2nd array:");
@@ -20,9 +20,9 @@ class MedianOfArrays
 
 		int res = -1;
 		if(m<n)
-			res = MedianOfArrays.median(nums1, 0, m-1, nums2, 0, n-1);
+			res = (int)MedianOfArrays.median(nums1, 0, m-1, nums2, 0, n-1);
 		else
-			res = MedianOfArrays.median(nums2, 0, n-1, nums1, 0, m-1);
+			res = (int)MedianOfArrays.median(nums2, 0, n-1, nums1, 0, m-1);
 		
 	}
 
@@ -45,8 +45,9 @@ class MedianOfArrays
 			else if((high2-low2)%2==1)
 			{
 				int ind = low2+(high2-low2)/2;
-				if(nums1[low1]>)
 			}
 		}
+		
+		return 0;
 	}
 }

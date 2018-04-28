@@ -7,8 +7,8 @@ class LuckyNum
 	{
 		Scanner sc=new Scanner(System.in);
 		int testno=sc.nextInt();
-		long l[]=new long[testno];
-		long r[]=new long[testno];
+		int l[]=new int[testno];
+		int r[]=new int[testno];
 		for(int i=0;i<testno;i++)
 		{
 			l[i]=sc.nextInt();

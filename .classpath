@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="CC"/>
+	<classpathentry kind="src" path="HR/ALGO"/>
+	<classpathentry kind="src" path="LC"/>
+	<classpathentry kind="src" path="OTHER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

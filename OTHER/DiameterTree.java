@@ -1,17 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-class TreeNode
-{
-	int data;
-	TreeNode left;
-	TreeNode right;
-	public TreeNode(int d)
-	{
-		data = d;
-	}
-}
-
 class DiameterTree
 {
 	public static TreeNode constructTree()

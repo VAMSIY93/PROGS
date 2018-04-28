@@ -1,7 +1,7 @@
 import java.util.*;
 import java.math.*;
 
-public class Solution {
+public class Reverse {
 
     public static void main(String args[])
     {
