@@ -6,22 +6,19 @@ public class GroupAnagrams
 	public static void main(String args[])
 	{
 		Scanner sc = new Scanner(System.in);
+		GroupAnagrams ga = new GroupAnagrams();
 		System.out.println("Enter size:");
 		int size = sc.nextInt();
 		String strs[] = new String[size];
 		System.out.println("Enter strings:");
 		for(int i=0;i<size;i++)
-			strs[i] = sc.nextLine();
+			strs[i] = sc.next();
 
-		System.out.println("Start");
-		for(int i=0;i<size;i++)
-			System.out.println(strs[i]+"a");
-
-		List<List<String>> output = GroupAnagrams.groupAnagrams(strs);
+		List<List<String>> output = ga.groupAnagrams(strs);
 		System.out.println(output);
 	}
 
-    public static List<List<String>> groupAnagrams(String[] strs)
+    public static List<List<String>> groupAnagramsTidy(String[] strs)
     {
     	List<List<String>> res = new ArrayList<List<String>>();
     	int size = strs.length;
@@ -99,5 +96,53 @@ public class GroupAnagrams
     	}
 
     	return res;
+    }
+
+    public String getString(String str) {
+    	String res = "";
+    	int nums[] = new int[26];
+
+    	int len = str.length();
+    	for(int i=0;i<len;i++) {
+    		int ind = (int)str.charAt(i) - 97;
+    		nums[ind]++;
+    	}
+
+    	for(int i=0;i<26;i++)
+    		res = res + nums[i] + "$";
+
+    	return res;
+    }
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+    	List<List<String>> result = new ArrayList<List<String>>();
+    	List<String> strings = new ArrayList<String>();
+
+    	for(int i=0;i<strs.length;i++) {
+    		String str1 = this.getString(strs[i]);
+    		boolean found = false;
+    		String str2 = "";
+    		int size = strings.size();
+
+    		for(int j=0;j<size;j++) {
+    			str2 = strings.get(j);
+    			if(str1.equals(str2)==true) {
+    				found = true;
+    				int ind = strings.indexOf(str2);
+    				List<String> list = result.get(ind);
+    				list.add(strs[i]);
+    				break;
+    			}
+    		}
+
+    		if(found==false) {
+    			strings.add(str1);
+    			List<String> list = new ArrayList<String>();
+    			list.add(strs[i]);
+    			result.add(list);
+    		}
+    	}
+
+    	return result;
     }
 }
