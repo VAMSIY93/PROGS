@@ -36,6 +36,28 @@ class JumpGame2 {
         return dp[0];
     }
 
+    public int jump2(int [] nums) {
+    	if(nums.length==0 || nums.length==1)
+    		return 0;
+
+    	int steps = 1, maxInd = nums[0], nextMax = maxInd;
+
+    	for(int i=1;i<nums.length;i++) {
+    		if((i+nums[i]) > nextMax)
+    			nextMax = i+nums[i];
+
+    		if(i==maxInd) {
+    			if(i==(nums.length-1))
+    				return steps;
+
+    			maxInd = nextMax;
+    			steps++;
+    		}
+    	}
+
+    	return steps;
+    }
+
 	public static void main(String args[]) {
 		Scanner sc = new Scanner(System.in);
 		JumpGame2 jg = new JumpGame2();
@@ -46,6 +68,6 @@ class JumpGame2 {
 		for(int i=0;i<N;i++)
 			nums[i] = sc.nextInt();
 
-		System.out.println("The min steps required is: " + jg.jump(nums));
+		System.out.println("The min steps required is: " + jg.jump2(nums));
 	}
 }
